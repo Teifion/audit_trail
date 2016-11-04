@@ -1,0 +1,28 @@
+<h2>Show audit trail</h2>
+
+<ul>
+
+  <li>
+    <strong>Action:</strong>
+    <%= @audit_trail.action %>
+  </li>
+
+  <li>
+    <strong>Details:</strong>
+    <%= @audit_trail.details %>
+  </li>
+
+  <li>
+    <strong>Timestamp:</strong>
+    <%= @audit_trail.timestamp %>
+  </li>
+
+  <li>
+    <strong>Ip:</strong>
+    <%= @audit_trail.ip %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: audit_trail_path(@conn, :edit, @audit_trail) %>
+<%= link "Back", to: audit_trail_path(@conn, :index) %>

@@ -1,0 +1,6 @@
+<h2>New audit trail</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: audit_trail_path(@conn, :create) %>
+
+<%= link "Back", to: audit_trail_path(@conn, :index) %>

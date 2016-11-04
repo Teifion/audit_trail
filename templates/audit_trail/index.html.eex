@@ -1,0 +1,32 @@
+<h2>Listing audit trails</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Action</th>
+      <th>Details</th>
+      <th>Timestamp</th>
+      <th>Ip</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for audit_trail <- @audit_trails do %>
+    <tr>
+      <td><%= audit_trail.action %></td>
+      <td><%= audit_trail.details %></td>
+      <td><%= audit_trail.inserted_at %></td>
+      <td><%= audit_trail.ip %></td>
+      
+      <td class="text-right">
+        <%= link "Show", to: audit_trail_path(@conn, :show, audit_trail), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: audit_trail_path(@conn, :edit, audit_trail), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: audit_trail_path(@conn, :delete, audit_trail), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New audit trail", to: audit_trail_path(@conn, :new) %>
